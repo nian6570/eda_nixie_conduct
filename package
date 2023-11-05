@@ -1,0 +1,157 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+PACKAGE NIXIE_PACKAGE IS
+    PROCEDURE display0(
+        num: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        posi: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        VARIABLE seg_data: OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+        VARIABLE sel_data: OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    );
+END;
+
+PACKAGE BODY NIXIE_PACKAGE IS
+    PROCEDURE display0(
+        num: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        posi: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        seg_data: OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+        sel_data: OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    ) IS
+    BEGIN
+            case posi is
+                when "0001" =>
+                    sel_data := "01111111";
+                    case num is
+                        when "0000" => seg_data := "1111110";  
+                        when "0001" => seg_data := "0110000";  
+                        when "0010" => seg_data := "1101101"; 
+                        when "0011" => seg_data := "1111001"; 
+                        when "0100" => seg_data := "0110011"; 
+                        when "0101" => seg_data := "1011011"; 
+                        when "0110" => seg_data := "1011111"; 
+                        when "0111" => seg_data := "1111000"; 
+                        when "1000" => seg_data := "1111111"; 
+                        when "1001" => seg_data := "1111011"; 
+                        when others => seg_data := "0000000"; -- 无效位置，全灭
+                    end case;
+
+                when "0010" =>
+                    sel_data := "10111111";
+                    case num is
+                        when "0000" => seg_data := "1111110";  
+                        when "0001" => seg_data := "0110000";  
+                        when "0010" => seg_data := "1101101"; 
+                        when "0011" => seg_data := "1111001"; 
+                        when "0100" => seg_data := "0110011"; 
+                        when "0101" => seg_data := "1011011"; 
+                        when "0110" => seg_data := "1011111"; 
+                        when "0111" => seg_data := "1111000"; 
+                        when "1000" => seg_data := "1111111"; 
+                        when "1001" => seg_data := "1111011"; 
+                        when others => seg_data := "0000000"; -- 无效位置，全灭
+                    end case;
+
+                when "0011" =>
+                    sel_data := "11011111";
+                    case num is
+                        when "0000" => seg_data := "1111110";  
+                        when "0001" => seg_data := "0110000";  
+                        when "0010" => seg_data := "1101101"; 
+                        when "0011" => seg_data := "1111001"; 
+                        when "0100" => seg_data := "0110011"; 
+                        when "0101" => seg_data := "1011011"; 
+                        when "0110" => seg_data := "1011111"; 
+                        when "0111" => seg_data := "1111000"; 
+                        when "1000" => seg_data := "1111111"; 
+                        when "1001" => seg_data := "1111011"; 
+                        when others => seg_data := "0000000"; -- 无效位置，全灭
+                    end case;
+
+                when "0100" =>
+                    sel_data := "11101111";
+                    case num is
+                        when "0000" => seg_data := "1111110";  
+                        when "0001" => seg_data := "0110000";  
+                        when "0010" => seg_data := "1101101"; 
+                        when "0011" => seg_data := "1111001"; 
+                        when "0100" => seg_data := "0110011"; 
+                        when "0101" => seg_data := "1011011"; 
+                        when "0110" => seg_data := "1011111"; 
+                        when "0111" => seg_data := "1111000"; 
+                        when "1000" => seg_data := "1111111"; 
+                        when "1001" => seg_data := "1111011"; 
+                        when others => seg_data := "0000000"; -- 无效位置，全灭
+                    end case;
+
+                when "0101" =>
+                    sel_data := "11110111";
+                    case num is
+                        when "0000" => seg_data := "1111110";  
+                        when "0001" => seg_data := "0110000";  
+                        when "0010" => seg_data := "1101101"; 
+                        when "0011" => seg_data := "1111001"; 
+                        when "0100" => seg_data := "0110011"; 
+                        when "0101" => seg_data := "1011011"; 
+                        when "0110" => seg_data := "1011111"; 
+                        when "0111" => seg_data := "1111000"; 
+                        when "1000" => seg_data := "1111111"; 
+                        when "1001" => seg_data := "1111011"; 
+                        when others => seg_data := "0000000"; -- 无效位置，全灭
+                    end case;
+
+                when "0110" =>
+                    sel_data := "11111011";
+                    case num is
+                        when "0000" => seg_data := "1111110";  
+                        when "0001" => seg_data := "0110000";  
+                        when "0010" => seg_data := "1101101"; 
+                        when "0011" => seg_data := "1111001"; 
+                        when "0100" => seg_data := "0110011"; 
+                        when "0101" => seg_data := "1011011"; 
+                        when "0110" => seg_data := "1011111"; 
+                        when "0111" => seg_data := "1111000"; 
+                        when "1000" => seg_data := "1111111"; 
+                        when "1001" => seg_data := "1111011"; 
+                        when others => seg_data := "0000000"; -- 无效位置，全灭
+                    end case;
+
+                when "0111" =>
+                    sel_data := "11111101";
+                    case num is
+                        when "0000" => seg_data := "1111110";  
+                        when "0001" => seg_data := "0110000";  
+                        when "0010" => seg_data := "1101101"; 
+                        when "0011" => seg_data := "1111001"; 
+                        when "0100" => seg_data := "0110011"; 
+                        when "0101" => seg_data := "1011011"; 
+                        when "0110" => seg_data := "1011111"; 
+                        when "0111" => seg_data := "1111000"; 
+                        when "1000" => seg_data := "1111111"; 
+                        when "1001" => seg_data := "1111011"; 
+                        when others => seg_data := "0000000"; -- 无效位置，全灭
+                    end case;
+
+                when "1000" =>
+                    sel_data := "11111110";
+                    case num is
+                       when "0000" => seg_data := "1111110";  
+                        when "0001" => seg_data := "0110000";  
+                        when "0010" => seg_data := "1101101"; 
+                        when "0011" => seg_data := "1111001"; 
+                        when "0100" => seg_data := "0110011"; 
+                        when "0101" => seg_data := "1011011"; 
+                        when "0110" => seg_data := "1011111"; 
+                        when "0111" => seg_data := "1111000"; 
+                        when "1000" => seg_data := "1111111"; 
+                        when "1001" => seg_data := "1111011"; 
+                        when others => seg_data := "0000000"; -- 无效位置，全灭
+                    end case;
+
+                when others =>
+                    -- 处理无效位置
+                    sel_data := "11111111";
+                    seg_data := "0000000";
+            end case;
+    END display0;
+END PACKAGE BODY NIXIE_PACKAGE;
+
