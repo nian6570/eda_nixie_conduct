@@ -1,0 +1,31 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use work.NIXIE_PACKAGE.all;
+
+entity display is
+  port (
+    a : in std_logic := '0';
+    b : in std_logic := '0';
+    seg_data1 : out std_logic_vector(6 downto 0);
+    sel_data1 : out std_logic_vector(7 downto 0)
+  );
+end entity display;
+
+architecture displey1 of display is
+  
+begin 
+  process(a,b)
+  variable seg : std_logic_vector(6 downto 0);
+  variable sel : std_logic_vector(7 downto 0);
+  begin 
+    if a = '0' and b = '1' then
+      display0("0001", "0001", seg, sel);
+    elsif b = '0' and a = '1' then
+      display0("0010", "0010", seg, sel);
+    else
+      display0("0011", "0011", seg, sel);
+    end if;
+    seg_data1 <= seg;
+    sel_data1 <= sel;
+  end process;
+end architecture displey1;
